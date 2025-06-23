@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《水滸傳》AI原生電影NFT - 全球首部AI古典文學電影</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #8e44ad;
+            --accent: #00ff9d;
+            --gold: #ffd700;
+            --red: #dc3545;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(142, 68, 173, 0.1) 0%, transparent 20%);
+        }
+        
+        .logo-font {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes logoGlow {
+            0% { text-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
+            100% { text-shadow: 0 0 25px rgba(0, 255, 157, 0.6), 0 0 35px rgba(52, 152, 219, 0.4); }
+        }
+        
+        .logo-sub {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: -10px;
+            text-align: center;
+            opacity: 0.8;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .accent-bg {
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid rgba(0, 255, 157, 0.2);
+        }
+        
+        .card {
+            background-color: rgba(26, 32, 44, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
+            border-color: rgba(0, 255, 157, 0.3);
+        }
+        
+        .navbar {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transition: all 0.3s ease;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 255, 157, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a1f2b, #2c3e50);
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            animation: bgPan 30s infinite linear;
+        }
+        
+        @keyframes bgPan {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-in-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-slide-right {
+            animation: slideRight 0.8s ease-in-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideRight {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .nft-card-hover {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .nft-card:hover .nft-card-hover {
+            transform: translateY(0);
+        }
+        
+        .token-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .rarity-legendary {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+        }
+        
+        .rarity-epic {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+        }
+        
+        .rarity-rare {
+            background: linear-gradient(135deg, #3498db, #5dade2);
+        }
+        
+        .rarity-common {
+            background: linear-gradient(135deg, #95a5a6, #bdc3c7);
+        }
+        
+        .price-tag {
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--gold);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 25px;
+            border-radius: 16px;
+            background: rgba(26, 32, 44, 0.5);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: rgba(26, 32, 44, 0.7);
+        }
+        
+        .stats-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .stats-card .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: rgba(26, 32, 44, 0.95);
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 255, 157, 0.3);
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: var(--accent);
+        }
+        
+        .input-field {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .input-field:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+        
+        /* Image placeholder styles */
+        .image-placeholder {
+            background: linear-gradient(45deg, #1a1f2b, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-placeholder::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 25%,
+                rgba(255, 255, 255, 0.05) 25%,
+                rgba(255, 255, 255, 0.05) 50%,
+                transparent 50%,
+                transparent 75%,
+                rgba(255, 255, 255, 0.05) 75%,
+                rgba(255, 255, 255, 0.05)
+            );
+            background-size: 40px 40px;
+            transform: rotate(45deg);
+            animation: placeholderAnim 1.5s linear infinite;
+        }
+        
+        @keyframes placeholderAnim {
+            0% { transform: rotate(45deg) translate(0, 0); }
+            100% { transform: rotate(45deg) translate(-20px, -20px); }
+        }
+        
+        .placeholder-text {
+            position: relative;
+            z-index: 2;
+            padding: 10px;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .logo-font {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                min-height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full z-50 px-4 py-3">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="hkaifm-logo">
+                <div class="logo-font">水滸傳</div>
+                <div class="logo-sub">AI 原生電影 NFT</div>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="hover:text-blue-400 transition">首頁</a>
+                <a href="#about" class="hover:text-blue-400 transition">項目介紹</a>
+                <a href="#collections" class="hover:text-blue-400 transition">NFT 系列</a>
+                <a href="#features" class="hover:text-blue-400 transition">技術特色</a>
+                <a href="#viewing" class="hover:text-blue-400 transition">觀影體驗</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="btn-primary px-6 py-2 rounded-full text-sm">
+                    連接錢包
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container mx-auto px-4 hero-content">
+            <div class="max-w-4xl animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    全球首部<span class="gradient-text">AI原生</span>古典文學電影
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8">
+                    500年義俠文學經典《水滸傳》的數位重生 <br>
+                    創新AI技術 × 區塊鏈NFT × 古典文化傳承
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
+                    <a href="#collections" class="btn-primary px-8 py-4 rounded-full font-medium text-lg text-center">
+                        探索NFT系列
+                    </a>
+                    <a href="#about" class="btn-secondary px-8 py-4 rounded-full font-medium text-lg text-center">
+                        了解項目
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="stats-card">
+                        <i class="fas fa-cubes"></i>
+                        <div class="number">153,600</div>
+                        <div class="text-sm">NFT總量</div>
+                    </div>
+                    <div class="stats-card">
+                        <i class="fas fa-film"></i>
+                        <div class="number">120</div>
+                        <div class="text-sm">電影分鐘</div>
+                    </div>
+                    <div class="stats-card">
+                        <i class="fas fa-users"></i>
+                        <div class="number">108</div>
+                        <div class="text-sm">梁山好漢</div>
+                    </div>
+                    <div class="stats-card">
+                        <i class="fas fa-globe"></i>
+                        <div class="number">27</div>
+                        <div class="text-sm">語言版本</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold mb-6">項目介紹</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    《水滸傳》AI原生電影項目是全球首個將500年古典文學巨著完全通過人工智能技術製作成120分鐘完整電影的革命性項目。
+                    基於區塊鏈的NFT生態系統，本項目將成為AI電影史和數字文化傳承的里程碑。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="card p-8 text-center animate-slide-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI原生技術</h3>
+                    <p class="text-gray-300">
+                        從劇本理解到視覺生成，從角色塑造到場景構建，全流程主要依靠人工智能技術完成
+                    </p>
+                </div>
+                
+                <div class="card p-8 text-center animate-slide-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">古典文學經典</h3>
+                    <p class="text-gray-300">
+                        500年義俠文學巨著《水滸傳》，與《紅樓夢》、《三國演義》、《西遊記》並稱四大名著
+                    </p>
+                </div>
+                
+                <div class="card p-8 text-center animate-slide-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">區塊鏈NFT</h3>
+                    <p class="text-gray-300">
+                        創新的NFT觀影機制，永久觀看權利，數字文化資產保護與傳承
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card p-8 animate-fade-in">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">核心價值</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                <span>全球首部AI原生古典文學改編電影</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                <span>500年義俠文學經典的數字化重生</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                <span>多語言全球發行，覆蓋180個國家和地區</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                <span>區塊鏈保護的數字文化資產</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mr-3 mt-1"></i>
+                                <span>創新的NFT觀影機制和互動體驗</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="image-placeholder w-full h-80 rounded-lg">
+                            <div class="placeholder-text">水滸傳場景圖像</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NFT Collections Section -->
+    <section id="collections" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold mb-6">NFT系列收藏</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    五個層級的NFT系列，從高端收藏到大眾觀影，形成完整的價值鏈條
+                </p>
+            </div>
+
+            <!-- 忠義NFT -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">
+                    <span class="rarity-legendary token-badge px-6 py-2">忠義NFT</span>
+                    - 創始贊助人層級
+                </h3>
+                <div class="card p-8 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="image-placeholder w-full h-80 rounded-lg">
+                                <div class="placeholder-text">忠義NFT圖像</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="price-tag mb-4">¥19,999</div>
+                            <p class="text-lg mb-4"><strong>發行數量：</strong>108枚（對應108位梁山好漢）</p>
+                            <h4 class="text-xl font-bold mb-3">專屬權益：</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li>• DAO核心投票權：參與項目重大決策</li>
+                                <li>• 商業使用權：獲得NFT形象的完全商業使用授權</li>
+                                <li>• 電影署名權：在電影片頭獲得"創始贊助人"署名</li>
+                                <li>• 主創交流權：定期參與主創團隊私人交流會</li>
+                                <li>• 獨家觀影體驗：專屬虛擬包廂觀影，支持最多20人同時觀看</li>
+                                <li>• 個性化定制：可要求AI生成個人專屬的《水滸傳》角色形象</li>
+                            </ul>
+                            <button class="btn-gold px-8 py-3 rounded-lg font-bold" onclick="openModal('zhongyi-modal')">
+                                查看詳情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 好漢星宿NFT -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">
+                    <span class="rarity-epic token-badge px-6 py-2">好漢星宿NFT</span>
+                    - 角色收藏系列
+                </h3>
+                
+                <!-- 天罡星系列 -->
+                <div class="card p-6 mb-8">
+                    <h4 class="text-2xl font-bold mb-6">天罡星系列</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="nft-card card rounded-xl overflow-hidden">
+                            <div class="relative">
+                                <div class="image-placeholder w-full h-48">
+                                    <div class="placeholder-text">宋江角色圖像</div>
+                                </div>
+                                <div class="absolute top-3 left-3">
+                                    <span class="rarity-epic token-badge">天罡星</span>
+                                </div>
+                                <div class="nft-card-hover">
+                                    <h5 class="font-bold mb-2">天魁星 - 呼保義宋江</h5>
+                                    <p class="text-sm">梁山泊首領，義薄雲天</p>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h5 class="font-bold">宋江</h5>
+                                    <div class="price-tag text-sm">¥1,999</div>
+                                </div>
+                                <p class="text-xs text-gray-400">發行量：1,000枚</p>
+                                <button class="btn-primary w-full mt-3 py-2 rounded-lg text-sm" onclick="openModal('songjang-modal')">
+                                    查看詳情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="nft-card card rounded-xl overflow-hidden">
+                            <div class="relative">
+                                <div class="image-placeholder w-full h-48">
+                                    <div class="placeholder-text">盧俊義角色圖像</div>
+                                </div>
+                                <div class="absolute top-3 left-3">
+                                    <span class="rarity-epic token-badge">天罡星</span>
+                                </div>
+                                <div class="nft-card-hover">
+                                    <h5 class="font-bold mb-2">天罡星 - 玉麒麟盧俊義</h5>
+                                    <p class="text-sm">河北大名府員外，武藝高強</p>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h5 class="font-bold">盧俊義</h5>
+                                    <div class="price-tag text-sm">¥1,899</div>
+                                </div>
+                                <p class="text-xs text-gray-400">發行量：1,000枚</p>
+                                <button class="btn-primary w-full mt-3 py-2 rounded-lg text-sm">
+                                    查看詳情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="nft-card card rounded-xl overflow-hidden">
+                            <div class="relative">
+                                <div class="image-placeholder w-full h-48">
+                                    <div class="placeholder-text">吳用角色圖像</div>
+                                </div>
+                                <div class="absolute top-3 left-3">
+                                    <span class="rarity-epic token-badge">天罡星</span>
+                                </div>
+                                <div class="nft-card-hover">
+                                    <h5 class="font-bold mb-2">天機星 - 智多星吳用</h5>
+                                    <p class="text-sm">梁山軍師，足智多謀</p>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h5 class="font-bold">吳用</h5>
+                                    <div class="price-tag text-sm">¥1,799</div>
+                                </div>
+                                <p class="text-xs text-gray-400">發行量：1,000枚</p>
+                                <button class="btn-primary w-full mt-3 py-2 rounded-lg text-sm">
+                                    查看詳情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="nft-card card rounded-xl overflow-hidden">
+                            <div class="relative">
+                                <div class="image-placeholder w-full h-48">
+                                    <div class="placeholder-text">天罡星系列圖像</div>
+                                </div>
+                                <div class="absolute top-3 left-3">
+                                    <span class="rarity-epic token-badge">天罡星</span>
+                                </div>
+                                <div class="nft-card-hover">
+                                    <h5 class="font-bold mb-2">更多天罡星好漢</h5>
+                                    <p class="text-sm">公孫勝、關勝、林沖、秦明等33位</p>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h5 class="font-bold">天罡星系列</h5>
+                                    <div class="price-tag text-sm">¥999-1,999</div>
+                                </div>
+                                <p class="text-xs text-gray-400">總共36位天罡星好漢</p>
+                                <button class="btn-primary w-full mt-3 py-2 rounded-lg text-sm" onclick="openModal('tiangang-modal')">
+                                    查看全部
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 地煞星系列 -->
+                <div class="card p-6 mb-8">
+                    <h4 class="text-2xl font-bold mb-6">地煞星系列</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="nft-card card rounded-xl overflow-hidden">
+                            <div class="relative">
+                                <div class="image-placeholder w-full h-48">
+                                    <div class="placeholder-text">李逵角色圖像</div>
+                                </div>
+                                <div class="absolute top-3 left-3">
+                                    <span class="rarity-rare token-badge">地煞星</span>
+                                </div>
+                                <div class="nft-card-hover">
+                                    <h5 class="font-bold mb-2">地殺星 - 黑旋風李逵</h5>
+                                    <p class="text-sm">性情豪爽，忠義雙全</p>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h5 class="font-bold">李逵</h5>
+                                    <div class="price-tag text-sm">¥899</div>
+                                </div>
+                                <p class="text-xs text-gray-400">發行量：200枚</p>
+                                <button class="btn-primary w-full mt-3 py-2 rounded-lg text-sm">
+                                    查看詳情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="nft-card card rounded-xl overflow-hidden">
+                            <div class="relative">
+                                <div class="image-placeholder w-full h-48">
+                                    <div class="placeholder-text">武松角色圖像</div>
+                                </div>
+                                <div class="absolute top-3 left-3">
+                                    <span class="rarity-rare token-badge">地煞星</span>
+                                </div>
+                                <div class="nft-card-hover">
+                                    <h5 class="font-bold mb-2">地傷星 - 行者武松</h5>
+                                    <p class="text-sm">景陽岡打虎英雄</p>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h5 class="font-bold">武松</h5>
+                                    <div class="price-tag text-sm">¥999</div>
+                                </div>
+                                <p class="text-xs text-gray-400">發行量：200枚</p>
+                                <button class="btn-primary w-full mt-3 py-2 rounded-lg text-sm">
+                                    查看詳情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="nft-card card rounded-xl overflow-hidden">
+                            <div class="relative">
+                                <div class="image-placeholder w-full h-48">
+                                    <div class="placeholder-text">林沖角色圖像</div>
+                                </div>
+                                <div class="absolute top-3 left-3">
+                                    <span class="rarity-rare token-badge">地煞星</span>
+                                </div>
+                                <div class="nft-card-hover">
+                                    <h5 class="font-bold mb-2">地雄星 - 豹子頭林沖</h5>
+                                    <p class="text-sm">八十萬禁軍教頭</p>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h5 class="font-bold">林沖</h5>
+                                    <div class="price-tag text-sm">¥899</div>
+                                </div>
+                                <p class="text-xs text-gray-400">發行量：200枚</p>
+                                <button class="btn-primary w-full mt-3 py-2 rounded-lg text-sm">
+                                    查看詳情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="nft-card card rounded-xl overflow-hidden">
+                            <div class="relative">
+                                <div class="image-placeholder w-full h-48">
+                                    <div class="placeholder-text">地煞星系列圖像</div>
+                                </div>
+                                <div class="absolute top-3 left-3">
+                                    <span class="rarity-rare token-badge">地煞星</span>
+                                </div>
+                                <div class="nft-card-hover">
+                                    <h5 class="font-bold mb-2">更多地煞星好漢</h5>
+                                    <p class="text-sm">魯智深、楊志、張順等69位</p>
+                                </div>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <h5 class="font-bold">地煞星系列</h5>
+                                    <div class="price-tag text-sm">¥299-999</div>
+                                </div>
+                                <p class="text-xs text-gray-400">總共72位地煞星好漢</p>
+                                <button class="btn-primary w-full mt-3 py-2 rounded-lg text-sm" onclick="openModal('disha-modal')">
+                                    查看全部
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 梁山信物NFT -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">
+                    <span class="rarity-rare token-badge px-6 py-2">梁山信物NFT</span>
+                    - 文化道具系列
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="image-placeholder w-full h-40">
+                                <div class="placeholder-text">替天行道令</div>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="rarity-rare token-badge">信物</span>
+                            </div>
+                            <div class="nft-card-hover">
+                                <h5 class="font-bold mb-2">替天行道令</h5>
+                                <p class="text-sm">梁山正義的象徵</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm">替天行道令</h5>
+                                <div class="price-tag text-sm">¥199</div>
+                            </div>
+                            <p class="text-xs text-gray-400">發行量：10,000枚</p>
+                            <button class="btn-primary w-full mt-3 py-2 rounded-lg text-xs">
+                                立即收藏
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="image-placeholder w-full h-40">
+                                <div class="placeholder-text">梁山聚義厅</div>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="rarity-rare token-badge">信物</span>
+                            </div>
+                            <div class="nft-card-hover">
+                                <h5 class="font-bold mb-2">梁山聚義厅</h5>
+                                <p class="text-sm">108好漢聚義之所</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm">梁山聚義厅</h5>
+                                <div class="price-tag text-sm">¥399</div>
+                            </div>
+                            <p class="text-xs text-gray-400">發行量：8,000枚</p>
+                            <button class="btn-primary w-full mt-3 py-2 rounded-lg text-xs">
+                                立即收藏
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="image-placeholder w-full h-40">
+                                <div class="placeholder-text">好漢排座次金榜</div>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="rarity-rare token-badge">信物</span>
+                            </div>
+                            <div class="nft-card-hover">
+                                <h5 class="font-bold mb-2">好漢排座次金榜</h5>
+                                <p class="text-sm">108好漢座次排名</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm">排座次金榜</h5>
+                                <div class="price-tag text-sm">¥899</div>
+                            </div>
+                            <p class="text-xs text-gray-400">發行量：5,000枚</p>
+                            <button class="btn-primary w-full mt-3 py-2 rounded-lg text-xs">
+                                立即收藏
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="image-placeholder w-full h-40">
+                                <div class="placeholder-text">斷金亭酒樽</div>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="rarity-rare token-badge">信物</span>
+                            </div>
+                            <div class="nft-card-hover">
+                                <h5 class="font-bold mb-2">斷金亭酒樽</h5>
+                                <p class="text-sm">義氣深情的見證</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm">斷金亭酒樽</h5>
+                                <div class="price-tag text-sm">¥299</div>
+                            </div>
+                            <p class="text-xs text-gray-400">發行量：12,000枚</p>
+                            <button class="btn-primary w-full mt-3 py-2 rounded-lg text-xs">
+                                立即收藏
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="nft-card card rounded-xl overflow-hidden">
+                        <div class="relative">
+                            <div class="image-placeholder w-full h-40">
+                                <div class="placeholder-text">梁山戰旗</div>
+                            </div>
+                            <div class="absolute top-3 left-3">
+                                <span class="rarity-rare token-badge">信物</span>
+                            </div>
+                            <div class="nft-card-hover">
+                                <h5 class="font-bold mb-2">梁山戰旗</h5>
+                                <p class="text-sm">替天行道的旗幟</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm">梁山戰旗</h5>
+                                <div class="price-tag text-sm">¥299</div>
+                            </div>
+                            <p class="text-xs text-gray-400">發行量：10,000枚</p>
+                            <button class="btn-primary w-full mt-3 py-2 rounded-lg text-xs">
+                                立即收藏
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 水滸NFT合成系列 -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">
+                    <span class="rarity-epic token-badge px-6 py-2">水滸NFT</span>
+                    - 合成收藏系列
+                </h3>
+                <div class="card p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="image-placeholder w-full h-80 rounded-lg">
+                                <div class="placeholder-text">水滸NFT合成圖像</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4">獨特合成機制</h4>
+                            <div class="mb-6">
+                                <div class="text-lg font-bold text-center p-4 border-2 border-dashed border-blue-400 rounded-lg">
+                                    梁山信物NFT + 好漢星宿NFT = 水滸NFT
+                                </div>
+                            </div>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-start">
+                                    <i class="fas fa-magic text-purple-400 mr-3 mt-1"></i>
+                                    <span><strong>獲得方式：</strong>梁山信物NFT + 好漢星宿NFT = 水滸NFT</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-400 mr-3 mt-1"></i>
+                                    <span><strong>唯一性：</strong>每個水滸NFT都是獨一無二的20-45秒AI電影短片</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line text-green-400 mr-3 mt-1"></i>
+                                    <span><strong>通縮機制：</strong>合成過程中原NFT被永久鎖定，減少市場供應</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-crown text-gold mr-3 mt-1"></i>
+                                    <span><strong>升級權益：</strong>比原NFT獲得更高級別的社群權限和觀影體驗</span>
+                                </li>
+                            </ul>
+                            <button class="btn-secondary px-8 py-3 rounded-lg font-bold" onclick="openModal('synthesis-modal')">
+                                了解合成機制
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 觀影令牌NFT -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center">
+                    <span class="rarity-common token-badge px-6 py-2">觀影令牌NFT</span>
+                    - 大眾觀影層級
+                </h3>
+                <div class="card p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="image-placeholder w-full h-64 rounded-lg">
+                                <div class="placeholder-text">觀影令牌圖像</div>
+                            </div>
+                        </div>
+                        <div class="md:col-span-2">
+                            <div class="price-tag mb-4 text-2xl">¥88</div>
+                            <p class="text-lg mb-4"><strong>發行數量：</strong>58,600枚</p>
+                            <h4 class="text-xl font-bold mb-3">基礎權益：</h4>
+                            <ul class="space-y-2 mb-6">
+                                <li>• 120分鐘AI電影完整觀看權</li>
+                                <li>• Discord社群準入權</li>
+                                <li>• 基礎投票權（非核心決策）</li>
+                                <li>• 未來續集優先購買權</li>
+                                <li>• 精美收藏級數字卡片設計</li>
+                                <li>• 支援多種數字錢包儲存</li>
+                            </ul>
+                            <button class="btn-primary px-8 py-3 rounded-lg font-bold mr-4">
+                                立即購買
+                            </button>
+                            <button class="btn-secondary px-8 py-3 rounded-lg font-bold">
+                                了解更多
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術特色 -->
+    <section id="features" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold mb-6">AI原生電影技術</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    從劇本理解到視覺生成，從角色塑造到場景構建，全流程主要依靠人工智能技術完成
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="card p-8 animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-4">視覺生成技術</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-blue-400 rounded-full mr-3"></div>
+                            <span>Stable Diffusion XL：負責高質量靜態畫面生成</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
+                            <span>Midjourney V6：創造具有藝術美感的概念設計</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
+                            <span>DALL-E 3：細節優化和特定元素生成</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-gold rounded-full mr-3"></div>
+                            <span>自研算法：北宋美學風格訓練模型</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-4">視頻生成與動畫</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-red-400 rounded-full mr-3"></div>
+                            <span>Runway ML Gen-2：靜態圖像轉動態視頻</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-yellow-400 rounded-full mr-3"></div>
+                            <span>Pika Labs：角色動作和表情動畫</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-indigo-400 rounded-full mr-3"></div>
+                            <span>D-ID：角色對話口型同步</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-pink-400 rounded-full mr-3"></div>
+                            <span>自研技術：古典服飾和建築動態效果</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-4">語音與音頻</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-cyan-400 rounded-full mr-3"></div>
+                            <span>ElevenLabs：高質量多語言配音生成</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-teal-400 rounded-full mr-3"></div>
+                            <span>Murf AI：情感表達優化</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-3"></div>
+                            <span>AIVA：背景音樂和配樂創作</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-lime-400 rounded-full mr-3"></div>
+                            <span>自研系統：古典樂器音效合成</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-4">後期製作</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-violet-400 rounded-full mr-3"></div>
+                            <span>DaVinci Resolve AI：智能剪輯和調色</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-rose-400 rounded-full mr-3"></div>
+                            <span>Adobe Premiere Pro AI：特效和轉場</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-3 h-3 bg-emerald-400 rounded-full mr-3"></div>
+                            <span>自研工具：章回制結構優化</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card p-8 animate-fade-in">
+                <h3 class="text-3xl font-bold mb-6 text-center">AI原生電影的核心優勢</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">創意無限性</h4>
+                        <p class="text-gray-300">完美還原古代場景，創造理想化的角色形象，實現天馬行空的視覺效果</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">成本效率優勢</h4>
+                        <p class="text-gray-300">製作成本降低85%，製作週期壓縮60%，後期修改靈活</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">多語言全球化</h4>
+                        <p class="text-gray-300">同步多語言製作，文化本土化適配，個性化觀影體驗</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">技術創新意義</h4>
+                        <p class="text-gray-300">開創AI電影製作的新範式，推動人工智能在藝術創作領域的應用</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 觀影體驗 -->
+    <section id="viewing" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold mb-6">創新觀影體驗</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    突破傳統電影觀看模式，創造前所未有的個性化、互動式觀影體驗
+                </p>
+            </div>
+            
+            <!-- 觀影模式 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="card p-8 animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-6">多重觀影模式</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-400 pl-4">
+                            <h4 class="text-lg font-bold">標準觀影模式</h4>
+                            <p class="text-gray-300">4K超高清畫質，7.1環繞聲，章回制結構，支援章節跳轉，多語言字幕和配音選擇</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-400 pl-4">
+                            <h4 class="text-lg font-bold">角色視角模式 <span class="rarity-epic token-badge text-xs ml-2">好漢星宿NFT專享</span></h4>
+                            <p class="text-gray-300">以持有的角色視角體驗劇情，AI實時生成角色內心獨白，個性化劇情分支和細節展示</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-gold pl-4">
+                            <h4 class="text-lg font-bold">導演解說模式 <span class="rarity-legendary token-badge text-xs ml-2">忠義NFT專享</span></h4>
+                            <p class="text-gray-300">主創團隊深度解說，AI技術製作幕後揭秘，文學原著對比分析</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-400 pl-4">
+                            <h4 class="text-lg font-bold">社交觀影模式</h4>
+                            <p class="text-gray-300">支援好友組隊觀影，實時彈幕和討論功能，觀影心得NFT生成</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card p-8 animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-6">AI互動技術</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-cyan-400 pl-4">
+                            <h4 class="text-lg font-bold">實時AI角色對話</h4>
+                            <p class="text-gray-300">基於大語言模型訓練的《水滸傳》角色AI，好漢星宿NFT持有者可與對應角色進行真實對話</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-pink-400 pl-4">
+                            <h4 class="text-lg font-bold">個性化內容生成</h4>
+                            <p class="text-gray-300">根據用戶觀影歷史和偏好，AI生成專屬劇情片段，可要求AI創作以自己為主角的番外篇</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-orange-400 pl-4">
+                            <h4 class="text-lg font-bold">智能推薦系統</h4>
+                            <p class="text-gray-300">基於NFT持有組合推薦最適合的觀影順序，智能匹配具有相似收藏偏好的用戶進行社交</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 觀影權稀缺性 -->
+            <div class="card p-8 mb-16 animate-fade-in">
+                <h3 class="text-3xl font-bold mb-6 text-center">觀影權的稀缺性價值</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-400 mb-2">800萬</div>
+                        <p class="text-gray-300">全球潛在觀影用戶</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-purple-400 mb-2">153,600</div>
+                        <p class="text-gray-300">NFT總供應量</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-gold mb-2">1:52</div>
+                        <p class="text-gray-300">供需比例（52個潜在用户競爭1個觀影權）</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <div class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 p-6 rounded-xl">
+                        <h4 class="text-xl font-bold mb-2">傳統模式 vs NFT觀影模式</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                            <div>
+                                <h5 class="font-bold text-red-300">傳統模式</h5>
+                                <p class="text-sm">購買電影票 → 觀看一次 → 價值消失</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-green-300">NFT模式</h5>
+                                <p class="text-sm">購買NFT → 永久觀看 → 資產增值 → 二級市場交易</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 未來功能 -->
+            <div class="card p-8 animate-fade-in">
+                <h3 class="text-3xl font-bold mb-6 text-center">未來升級功能</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">沉浸式VR模式</h4>
+                        <ul class="space-y-2">
+                            <li>• VR頭顯支援，360度沉浸體驗</li>
+                            <li>• 可在北宋場景中自由行走</li>
+                            <li>• 與AI角色進行實時互動</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">元宇宙整合</h4>
+                        <ul class="space-y-2">
+                            <li>• 基於電影場景構建完整的北宋虛擬世界</li>
+                            <li>• NFT持有者可在虛擬世界中擁有對應的身份</li>
+                            <li>• 支援在虛擬世界中舉辦文學沙龍、商業活動</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化價值 -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold mb-6">《水滸傳》的文化價值</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    500年來影響世界的東方古典文學巨著，在全球擁有深厚的文化底蘊和廣泛的認知度
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="card p-8 animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-4">文學史地位</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-gold mr-3 mt-1"></i>
+                            <span>義俠文學巔峰之作：首次以農民起義為題材的長篇小說</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-gold mr-3 mt-1"></i>
+                            <span>人物塑造經典：創造了宋江、武松、林沖等文學史上的經典形象</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-gold mr-3 mt-1"></i>
+                            <span>社會畫卷價值：真實反映北宋末年社會的生活百態</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-gold mr-3 mt-1"></i>
+                            <span>藝術技法創新：開創了章回體小說的成熟形式</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 animate-slide-up">
+                    <h3 class="text-2xl font-bold mb-4">國際學術認可</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-400">3,000+</div>
+                            <p class="text-sm text-gray-400">學術論文</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400">27</div>
+                            <p class="text-sm text-gray-400">翻譯語言</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-400">80+</div>
+                            <p class="text-sm text-gray-400">年度學術會議</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-gold">頂級</div>
+                            <p class="text-sm text-gray-400">大學課程</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">哈佛大學、牛津大學、東京大學等頂級學府均設有專門研究課程</p>
+                </div>
+            </div>
+            
+            <!-- 全球認知度統計 -->
+            <div class="card p-8 animate-fade-in">
+                <h3 class="text-3xl font-bold mb-6 text-center">全球認知度統計</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-gray-600">
+                                <th class="py-3 px-4">地區</th>
+                                <th class="py-3 px-4">知識分子認知度</th>
+                                <th class="py-3 px-4">大眾認知度</th>
+                                <th class="py-3 px-4">潛在用戶基數</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-3 px-4 font-bold">中國大陸</td>
+                                <td class="py-3 px-4 text-green-400">98%</td>
+                                <td class="py-3 px-4 text-green-400">75%</td>
+                                <td class="py-3 px-4">4.2億人</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-3 px-4 font-bold">台港澳</td>
+                                <td class="py-3 px-4 text-green-400">95%</td>
+                                <td class="py-3 px-4 text-blue-400">52%</td>
+                                <td class="py-3 px-4">1,000萬人</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-3 px-4 font-bold">日本</td>
+                                <td class="py-3 px-4 text-blue-400">85%</td>
+                                <td class="py-3 px-4 text-yellow-400">32%</td>
+                                <td class="py-3 px-4">1,500萬人</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-3 px-4 font-bold">韓國</td>
+                                <td class="py-3 px-4 text-blue-400">72%</td>
+                                <td class="py-3 px-4 text-yellow-400">25%</td>
+                                <td class="py-3 px-4">1,000萬人</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-3 px-4 font-bold">美國</td>
+                                <td class="py-3 px-4 text-yellow-400">52%</td>
+                                <td class="py-3 px-4 text-orange-400">12%</td>
+                                <td class="py-3 px-4">800萬人</td>
+                            </tr>
+                            <tr class="border-b border-gray-700">
+                                <td class="py-3 px-4 font-bold">歐洲</td>
+                                <td class="py-3 px-4 text-yellow-400">42%</td>
+                                <td class="py-3 px-4 text-orange-400">8%</td>
+                                <td class="py-3 px-4">500萬人</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-bold">其他地區</td>
+                                <td class="py-3 px-4 text-orange-400">32%</td>
+                                <td class="py-3 px-4 text-red-400">5%</td>
+                                <td class="py-3 px-4">300萬人</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育價值與應用 -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold mb-6">教育價值與文化傳承</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    通過AI技術和NFT載體，推動古典文學在現代教育中的創新應用和全球文化傳播
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-8 text-center animate-slide-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">國際中文教育</h3>
+                    <ul class="text-left space-y-2">
+                        <li>• 與全球孔子學院合作，將NFT用於中文教學</li>
+                        <li>• 基於角色對話系統的沉浸式語言學習</li>
+                        <li>• 文化背景知識的互動式傳授</li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 text-center animate-slide-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">學術研究支持</h3>
+                    <ul class="text-left space-y-2">
+                        <li>• 為全球《水滸傳》研究學者提供數字化研究工具</li>
+                        <li>• 支援對原著文本的深度標註和分析</li>
+                        <li>• 建立全球《水滸傳》研究者的學術社交網路</li>
+                    </ul>
+                </div>
+                
+                <div class="card p-8 text-center animate-slide-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">文化軟實力價值</h3>
+                    <ul class="text-left space-y-2">
+                        <li>• 增強全球華人的文化認同感</li>
+                        <li>• 展示中華文化的深厚底蘊和藝術成就</li>
+                        <li>• 促進東西方文化的交流與理解</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 購買指南 -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold mb-6">購買指南</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    簡單三步驟，開始您的《水滸傳》AI電影NFT收藏之旅
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center animate-slide-up">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">連接數字錢包</h3>
+                    <p class="text-gray-300">支援 MetaMask、WalletConnect、Coinbase Wallet 等主流錢包</p>
+                </div>
+                
+                <div class="text-center animate-slide-up">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">選擇NFT系列</h3>
+                    <p class="text-gray-300">根據您的預算和喜好，選擇適合的NFT系列和角色</p>
+                </div>
+                
+                <div class="text-center animate-slide-up">
+                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">完成購買交易</h3>
+                    <p class="text-gray-300">確認交易信息，支付Gas費用，等待區塊鏈確認</p>
+                </div>
+            </div>
+            
+            <div class="card p-8 animate-fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-center">支援的支付方式</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 border border-gray-600 rounded-lg">
+                        <i class="fab fa-ethereum text-3xl text-blue-400 mb-2"></i>
+                        <p class="font-bold">ETH</p>
+                    </div>
+                    <div class="p-4 border border-gray-600 rounded-lg">
+                        <i class="fab fa-bitcoin text-3xl text-orange-400 mb-2"></i>
+                        <p class="font-bold">WBTC</p>
+                    </div>
+                    <div class="p-4 border border-gray-600 rounded-lg">
+                        <i class="fas fa-dollar-sign text-3xl text-green-400 mb-2"></i>
+                        <p class="font-bold">USDC</p>
+                    </div>
+                    <div class="p-4 border border-gray-600 rounded-lg">
+                        <i class="fas fa-dollar-sign text-3xl text-green-400 mb-2"></i>
+                        <p class="font-bold">USDT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-gradient-to-r from-blue-900 to-purple-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">加入《水滸傳》AI電影NFT社群</h2>
+                <p class="text-xl text-gray-200 mb-8">
+                    訂閱我們的電子報，獲得最新NFT發售信息、獨家收藏機會，以及AI電影製作的幕後花絮
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                    <input type="email" placeholder="輸入您的電子郵件" class="input-field rounded-full px-6 py-3 w-full">
+                    <button class="btn-primary px-8 py-3 rounded-full font-medium whitespace-nowrap">
+                        立即訂閱
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="hkaifm-logo mb-4">
+                        <div class="logo-font text-2xl">水滸傳</div>
+                        <div class="logo-sub text-xs">AI 原生電影 NFT</div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        通過AI技術和區塊鏈創新，讓500年古典文學經典在數字時代重新綻放光彩
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">NFT系列</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">忠義NFT</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">好漢星宿NFT</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">梁山信物NFT</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">水滸NFT</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">觀影令牌NFT</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">技術與創新</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">AI原生電影技術</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">觀影體驗創新</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">區塊鏈應用</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">NFT合成機制</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">技術文檔</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">文化與教育</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">《水滸傳》文化價值</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">教育應用</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">學術合作</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">文化傳承</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 《水滸傳》AI原生電影NFT項目。保留所有權利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- 忠義NFT詳情模態框 -->
+    <div id="zhongyi-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-3xl font-bold mb-6">忠義NFT - 創始贊助人層級</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="image-placeholder w-full h-80 rounded-lg mb-4">
+                        <div class="placeholder-text">忠義NFT圖像</div>
+                    </div>
+                    <div class="rarity-legendary token-badge px-4 py-2 text-lg font-bold text-center w-full">
+                        傳說級稀有度
+                    </div>
+                </div>
+                <div>
+                    <div class="price-tag mb-6 text-3xl">¥19,999</div>
+                    <p class="text-lg mb-4"><strong>發行數量：</strong>108枚（對應108位梁山好漢）</p>
+                    
+                    <h4 class="text-xl font-bold mb-4">專屬權益詳情：</h4>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-gold pl-4">
+                            <h5 class="font-bold">DAO核心投票權</h5>
+                            <p class="text-sm text-gray-300">參與項目重大決策，包括續集製作、IP授權、收益分配等核心事務的投票決定權</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-blue-400 pl-4">
+                            <h5 class="font-bold">商業使用權</h5>
+                            <p class="text-sm text-gray-300">獲得NFT形象的完全商業使用授權，可用於個人品牌、商業活動、衍生產品開發</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-400 pl-4">
+                            <h5 class="font-bold">電影署名權</h5>
+                            <p class="text-sm text-gray-300">在電影片頭獲得"創始贊助人"署名，永久記錄您對項目的支持和貢獻</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-400 pl-4">
+                            <h5 class="font-bold">主創交流權</h5>
+                            <p class="text-sm text-gray-300">定期參與主創團隊私人交流會，深度了解項目發展和技術創新</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-pink-400 pl-4">
+                            <h5 class="font-bold">獨家觀影體驗</h5>
+                            <p class="text-sm text-gray-300">專屬虛擬包廂觀影，支持最多20人同時觀看，享受頂級觀影服務</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-cyan-400 pl-4">
+                            <h5 class="font-bold">個性化定制</h5>
+                            <p class="text-sm text-gray-300">可要求AI生成個人專屬的《水滸傳》角色形象，打造獨一無二的數字身份</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button class="btn-gold px-8 py-3 rounded-lg font-bold w-full">
+                            立即購買 ¥19,999
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8">
+                <h4 class="text-xl font-bold mb-4">技術特色：</h4>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <li>• 動態生成視頻藝術品（60-120秒）</li>
+                    <li>• 融合北宋美學與現代數字藝術</li>
+                    <li>• 獨一無二的算法生成，無重複</li>
+                    <li>• 4K超高清品質，支援8K未來升級</li>
+                    <li>• 元宇宙平台兼容性</li>
+                    <li>• 永久儲存在IPFS和Arweave</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 宋江NFT詳情模態框 -->
+    <div id="songjang-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-3xl font-bold mb-6">天魁星 - 呼保義宋江</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="image-placeholder w-full h-80 rounded-lg mb-4">
+                        <div class="placeholder-text">宋江角色圖像</div>
+                    </div>
+                    <div class="rarity-epic token-badge px-4 py-2 text-lg font-bold text-center w-full">
+                        史詩級稀有度
+                    </div>
+                </div>
+                <div>
+                    <div class="price-tag mb-6 text-3xl">¥1,999</div>
+                    <p class="text-lg mb-4"><strong>發行數量：</strong>1,000枚</p>
+                    <p class="text-lg mb-4"><strong>星宿：</strong>天魁星</p>
+                    <p class="text-lg mb-6"><strong>綽號：</strong>呼保義</p>
+                    
+                    <h4 class="text-xl font-bold mb-4">角色介紹：</h4>
+                    <p class="text-gray-300 mb-6">
+                        宋江，梁山泊首領，天魁星轉世。為人仗義疏財，在江湖上享有"及時雨"的美名。
+                        雖然武功不高，但憑藉過人的領導才能和人格魅力，將108位好漢團結在一起，
+                        成為梁山泊的精神領袖。
+                    </p>
+                    
+                    <h4 class="text-xl font-bold mb-4">NFT特色：</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li>• 3D互動角色，360度觀察體驗</li>
+                        <li>• 支援PFP頭像使用</li>
+                        <li>• 個性化互動觀影功能</li>
+                        <li>• 角色AI對話系統</li>
+                        <li>• 專屬角色劇情片段</li>
+                    </ul>
+                    
+                    <button class="btn-primary px-8 py-3 rounded-lg font-bold w-full">
+                        立即購買 ¥1,999
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 天罡星系列模態框 -->
+    <div id="tiangang-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-3xl font-bold mb-6">天罡星系列 - 36位好漢</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天魁星 - 呼保義宋江</h4>
+                    <p class="text-sm text-gray-400 mb-2">梁山泊首領，仗義疏財</p>
+                    <div class="price-tag text-sm">¥1,999</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天罡星 - 玉麒麟盧俊義</h4>
+                    <p class="text-sm text-gray-400 mb-2">河北大名府員外，武藝高強</p>
+                    <div class="price-tag text-sm">¥1,899</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天機星 - 智多星吳用</h4>
+                    <p class="text-sm text-gray-400 mb-2">梁山軍師，足智多謀</p>
+                    <div class="price-tag text-sm">¥1,799</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天閑星 - 入雲龍公孫勝</h4>
+                    <p class="text-sm text-gray-400 mb-2">道士出身，精通法術</p>
+                    <div class="price-tag text-sm">¥1,699</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天勇星 - 大刀關勝</h4>
+                    <p class="text-sm text-gray-400 mb-2">關羽後代，武藝超群</p>
+                    <div class="price-tag text-sm">¥1,599</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天雄星 - 豹子頭林沖</h4>
+                    <p class="text-sm text-gray-400 mb-2">八十萬禁軍教頭</p>
+                    <div class="price-tag text-sm">¥1,499</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天猛星 - 霹靂火秦明</h4>
+                    <p class="text-sm text-gray-400 mb-2">青州指揮司統制</p>
+                    <div class="price-tag text-sm">¥1,399</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天威星 - 雙鞭呼延灼</h4>
+                    <p class="text-sm text-gray-400 mb-2">汝寧郡都統制</p>
+                    <div class="price-tag text-sm">¥1,299</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天英星 - 小李廣花榮</h4>
+                    <p class="text-sm text-gray-400 mb-2">清風寨副知寨，神箭手</p>
+                    <div class="price-tag text-sm">¥1,199</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天貴星 - 小旋風柴進</h4>
+                    <p class="text-sm text-gray-400 mb-2">後周世宗柴榮之後</p>
+                    <div class="price-tag text-sm">¥1,099</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">天富星 - 撲天雕李應</h4>
+                    <p class="text-sm text-gray-400 mb-2">李家莊莊主</p>
+                    <div class="price-tag text-sm">¥999</div>
+                </div>
+                
+                <div class="card p-4 text-center">
+                    <h4 class="font-bold mb-2">更多天罡星好漢</h4>
+                    <p class="text-sm text-gray-400 mb-2">朱仝、魯智深、武松等25位</p>
+                    <div class="price-tag text-sm">¥999-1,999</div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-300 mb-4">天罡星系列共36位好漢，每位1,000枚，總計36,000枚NFT</p>
+                <button class="btn-primary px-8 py-3 rounded-lg font-bold">
+                    查看完整列表
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 地煞星系列模態框 -->
+    <div id="disha-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-3xl font-bold mb-6">地煞星系列 - 72位好漢</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地殺星 - 黑旋風李逵</h4>
+                    <p class="text-sm text-gray-400 mb-2">性情豪爽，忠義雙全</p>
+                    <div class="price-tag text-sm">¥899</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地傷星 - 行者武松</h4>
+                    <p class="text-sm text-gray-400 mb-2">景陽岡打虎英雄</p>
+                    <div class="price-tag text-sm">¥999</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地勇星 - 病關索楊雄</h4>
+                    <p class="text-sm text-gray-400 mb-2">薊州兩院押獄兼司獄</p>
+                    <div class="price-tag text-sm">¥799</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地傑星 - 醜郡馬宣贊</h4>
+                    <p class="text-sm text-gray-400 mb-2">定遠將軍</p>
+                    <div class="price-tag text-sm">¥699</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地雄星 - 井木犴郝思文</h4>
+                    <p class="text-sm text-gray-400 mb-2">關勝部將</p>
+                    <div class="price-tag text-sm">¥599</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地威星 - 百勝將韓滔</h4>
+                    <p class="text-sm text-gray-400 mb-2">青州兵馬都監</p>
+                    <div class="price-tag text-sm">¥499</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地英星 - 天目將彭玘</h4>
+                    <p class="text-sm text-gray-400 mb-2">青州兵馬都監</p>
+                    <div class="price-tag text-sm">¥399</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地奇星 - 聖水將單廷珪</h4>
+                    <p class="text-sm text-gray-400 mb-2">凌州團練使</p>
+                    <div class="price-tag text-sm">¥399</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地猛星 - 神火將魏定國</h4>
+                    <p class="text-sm text-gray-400 mb-2">凌州團練使</p>
+                    <div class="price-tag text-sm">¥299</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地文星 - 聖手書生蕭讓</h4>
+                    <p class="text-sm text-gray-400 mb-2">書法大師</p>
+                    <div class="price-tag text-sm">¥299</div>
+                </div>
+                
+                <div class="card p-4">
+                    <h4 class="font-bold mb-2">地正星 - 鐵面孔目裴宣</h4>
+                    <p class="text-sm text-gray-400 mb-2">京兆府孔目</p>
+                    <div class="price-tag text-sm">¥299</div>
+                </div>
+                
+                <div class="card p-4 text-center">
+                    <h4 class="font-bold mb-2">更多地煞星好漢</h4>
+                    <p class="text-sm text-gray-400 mb-2">魯智深、楊志、張順等61位</p>
+                    <div class="price-tag text-sm">¥299-999</div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-300 mb-4">地煞星系列共72位好漢，每位200枚，總計14,400枚NFT</p>
+                <button class="btn-primary px-8 py-3 rounded-lg font-bold">
+                    查看完整列表
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 合成機制模態框 -->
+    <div id="synthesis-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-3xl font-bold mb-6">水滸NFT合成機制</h2>
+            
+            <div class="mb-8">
+                <div class="text-center mb-6">
+                    <div class="inline-block border-2 border-dashed border-blue-400 p-6 rounded-xl">
+                        <div class="text-2xl font-bold mb-4">合成公式</div>
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-2">
+                                    <i class="fas fa-flag text-xl"></i>
+                                </div>
+                                <div class="text-sm">梁山信物NFT</div>
+                            </div>
+                            <div class="text-3xl font-bold">+</div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-purple-500 rounded-lg flex items-center justify-center mb-2">
+                                    <i class="fas fa-user text-xl"></i>
+                                </div>
+                                <div class="text-sm">好漢星宿NFT</div>
+                            </div>
+                            <div class="text-3xl font-bold">=</div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-gold rounded-lg flex items-center justify-center mb-2">
+                                    <i class="fas fa-crown text-xl"></i>
+                                </div>
+                                <div class="text-sm">水滸NFT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="card p-6">
+                    <h4 class="text-xl font-bold mb-4">合成規則</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-3 h-3 bg-blue-400 rounded-full mr-3 mt-2"></div>
+                            <span>需要同時持有一個梁山信物NFT和一個好漢星宿NFT</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-3 h-3 bg-purple-400 rounded-full mr-3 mt-2"></div>
+                            <span>合成過程由智能合約自動執行，確保公平性</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-3 h-3 bg-green-400 rounded-full mr-3 mt-2"></div>
+                            <span>合成成功後，原NFT將被永久鎖定（銷毀）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-3 h-3 bg-gold rounded-full mr-3 mt-2"></div>
+                            <span>每個水滸NFT都是獨一無二的，無法復制</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card p-6">
+                    <h4 class="text-xl font-bold mb-4">合成獎勵</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-3 h-3 bg-red-400 rounded-full mr-3 mt-2"></div>
+                            <span>獲得20-45秒獨特AI電影短片</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-3 h-3 bg-yellow-400 rounded-full mr-3 mt-2"></div>
+                            <span>升級至更高級別的社群權限</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-3 h-3 bg-indigo-400 rounded-full mr-3 mt-2"></div>
+                            <span>獲得更豐富的觀影體驗功能</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-3 h-3 bg-pink-400 rounded-full mr-3 mt-2"></div>
+                            <span>參與更高級別的DAO投票</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card p-6 mb-8">
+                <h4 class="text-xl font-bold mb-4">通縮機制效應</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-blue-400 mb-2">153,600</div>
+                        <p class="text-sm text-gray-400">初始總供應量</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-red-400 mb-2">-33,250</div>
+                        <p class="text-sm text-gray-400">預期鎖定數量</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-green-400 mb-2">135,850</div>
+                        <p class="text-sm text-gray-400">最終流通供應</p>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-gray-300">
+                        供應量減少約12%，預期價格上漲18-30%
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="btn-primary px-8 py-3 rounded-lg font-bold mr-4">
+                    開始合成
+                </button>
+                <button class="btn-secondary px-8 py-3 rounded-lg font-bold">
+                    查看合成歷史
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking the X
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up, .animate-slide-right');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        if (entry.target.classList.contains('animate-slide-up')) {
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                        if (entry.target.classList.contains('animate-slide-right')) {
+                            entry.target.style.transform = 'translateX(0)';
+                        }
+                        if (entry.target.classList.contains('animate-fade-in')) {
+                            entry.target.style.transform = 'scale(1)';
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                if (el.classList.contains('animate-slide-up')) {
+                    el.style.transform = 'translateY(50px)';
+                }
+                if (el.classList.contains('animate-slide-right')) {
+                    el.style.transform = 'translateX(-50px)';
+                }
+                if (el.classList.contains('animate-fade-in')) {
+                    el.style.transform = 'scale(0.95)';
+                }
+                observer.observe(el);
+            });
+        });
+
+        // Wallet connection simulation
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            if (this.textContent.includes('連接錢包')) {
+                alert('正在連接MetaMask錢包...');
+                // Simulate wallet connection
+                setTimeout(() => {
+                    this.textContent = '錢包已連接';
+                    this.classList.remove('btn-primary');
+                    this.classList.add('btn-secondary');
+                }, 1500);
+            }
+        });
+
+        // NFT purchase simulation
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.textContent.includes('立即購買') || btn.textContent.includes('立即收藏')) {
+                btn.addEventListener('click', function() {
+                    const price = this.textContent.match(/¥[\d,]+/);
+                    if (price) {
+                        alert(`正在處理購買請求：${price[0]}\n請在錢包中確認交易...`);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
